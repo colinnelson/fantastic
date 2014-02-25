@@ -11,12 +11,16 @@
 
 function fantastic() {
 	var _ = {};
+
 	var c;
-	var ctx;
-	var ta;
+    var ctx;
+    var img;
+    var ta;
+	var formWrap;
+
 	var WIDTH = 640;
 	var HEIGHT = 1136;
-	var text = "You're\nFantastic";
+	var text = "This\nis\nMultiple\nLines";
 	var fontSize = 28;
 	var fontPx = "px ";
 
@@ -27,19 +31,48 @@ function fantastic() {
 	var aligns = ["left", "center", "right"];
 
 	var selectedAlign = 0;
-	var selectedFont = 0;
+    var selectedFont = 0;
+
+    var inputVisible = false;
 
     _.init = function() {
     	c = $("#canvas")[0];
-    	ta = $("#entry_text");
-		ctx = c.getContext("2d");
-    	console.log(ta);
-    	ta.change(onTextEnter);
-    	ta.val(text);
+        ta = $("#entry_text");
+        img = $("#canvasImg");
+        formWrap = $("#formWrap");
+        ctx = c.getContext("2d");
+            ta.val(text);
 
-        buildInput();
+    	ta.change(onTextEnter);
+
+        buildInputs();
 
     	render();
+
+        img.click(imgClick);
+        showForm(false);
+
+
+    }
+    var imgClick = function (){
+        if(inputVisible = !inputVisible ){
+            showForm(true);
+        }else{
+            showForm(false);
+        }
+    }
+
+    var showForm = function (show){
+        inputVisible = show;
+        if(show){
+            ta.val(text);
+            formWrap.show();
+        }else{
+            formWrap.hide();
+
+        }
+
+
     }
     var alignX = function(){
 		return [10, WIDTH/2, WIDTH-10];
@@ -51,15 +84,59 @@ function fantastic() {
     	render();
 
     }
-    var buildInput = function(){
+    var buildInputs = function(){
+        $("#inputForm").append("<br />");
 
-        data = aligns;
+        $("#inputForm").append("<div class='label'> Text Align: </div>");
 
-        var s = $("<select id=\"alignSelect\" name=\"selectName\" />");
-        for(var val in data) {
-            $("<option />", {value: val, text: data[val].toUpperCase()}).appendTo(s);
+        var d = $("<div class='selector' />");
+        var s = $("<select id=\"alignSelect\" name=\"alignSelect\" />");
+        for(var val in aligns) {
+            $("<option />", {value: val, text: aligns[val].toUpperCase()}).appendTo(s);
         }
-        s.appendTo("#inputForm");
+        s.appendTo(d);
+        d.appendTo("#inputForm");
+
+
+
+        $("#inputForm").append("<div class='clearFloat'></div>");
+
+
+        $("#inputForm").append("<div class='label'> Font: </div>");
+
+        var d = $("<div class='selector' />");
+
+        var s = $("<select id=\"fontSelect\" name=\"fontSelect\" />");
+
+        for(var val in fonts) {
+            $("<option />", {value: val, text: fonts[val].toUpperCase()}).appendTo(s);
+        }
+
+        s.appendTo(d);
+        d.appendTo("#inputForm");
+
+        $("#inputForm").append("<div class='clearFloat'></div>");
+
+        $("#inputForm").append("<br />");
+
+        var d = $("<div id='formSubmitHolder' />");
+        var s = $("<input type=\"submit\" id=\"formSubmit\" name=\"formSubmit\" value=\"OK\" />");
+
+        s.appendTo(d);
+
+        d.appendTo("#inputForm");
+
+        $("#inputForm").submit(checkForm);
+
+    }
+    var checkForm = function(e){
+        e.preventDefault();
+        text = ta.val();
+        selectedAlign = $("#alignSelect").val();
+        selectedFont = $("#fontSelect").val();
+        showForm(false);
+        render();
+
     }
     var render = function(){
     	ctx.fillStyle = "#000000";
