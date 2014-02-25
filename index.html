@@ -8,23 +8,37 @@
         <!-- CSS -->
         <link href='./css/styles.css' rel='stylesheet'>
 
+        <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>
+
         <!-- JS -->
         <script src='js/jquery.min.js'></script>
         <script src='js/youarefantastic.js'></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+        <script>
+          WebFont.load({
+            google: {
+              families: ['Questrial', 'Dancing Script']
+            }
+          });
+        </script>
     </head>
     <body>
+        <div class="font" style="font-family:Dancing Script;">.</div>
+        <div class="font" style="font-family: Questrial;">.</div>
     	<canvas id="canvas" width="640" height="1136" ></canvas>
 
         <img id="canvasImg" alt="Right click to save me!" />
 
         <div id="formWrap">
-        <div id="formHolder">
-            <form id="inputForm">
-                <textarea id="entry_text"></textarea>
-                <br />
-
-            </form>
-        </div>
+            <div id="formHolder">
+                <form id="inputForm">
+                    Make Yours (and then save)<br /><br />
+                    <textarea id="entry_text"></textarea>
+                    <br />
+                </form>
+            </div>
         </div>
     </body>
 </html>

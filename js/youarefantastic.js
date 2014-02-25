@@ -20,17 +20,19 @@ function fantastic() {
 
 	var WIDTH = 640;
 	var HEIGHT = 1136;
-	var text = "This\nis\nMultiple\nLines";
+	var text = "You are Fantastic.";
 	var fontSize = 28;
 	var fontPx = "px ";
 
 
 
-	var fonts = ["Arial"];
+	var fonts = ["Courier", "Questrial", 'Dancing Script'];
+
+    //font-family: 'Open Sans', sans-serif;
 
 	var aligns = ["left", "center", "right"];
 
-	var selectedAlign = 0;
+	var selectedAlign = 1;
     var selectedFont = 0;
 
     var inputVisible = false;
@@ -92,7 +94,7 @@ function fantastic() {
         var d = $("<div class='selector' />");
         var s = $("<select id=\"alignSelect\" name=\"alignSelect\" />");
         for(var val in aligns) {
-            $("<option />", {value: val, text: aligns[val].toUpperCase()}).appendTo(s);
+            $("<option />", {value: val, selected:selectedAlign==val, text: aligns[val].toUpperCase()}).appendTo(s);
         }
         s.appendTo(d);
         d.appendTo("#inputForm");
@@ -109,7 +111,7 @@ function fantastic() {
         var s = $("<select id=\"fontSelect\" name=\"fontSelect\" />");
 
         for(var val in fonts) {
-            $("<option />", {value: val, text: fonts[val].toUpperCase()}).appendTo(s);
+            $("<option />", {value: val, selected:selectedFont==val, text: fonts[val].toUpperCase()}).appendTo(s);
         }
 
         s.appendTo(d);
@@ -143,21 +145,20 @@ function fantastic() {
     	ctx.fillRect(0, 0, WIDTH, HEIGHT );
     	ctx.fillStyle = "#FFFFFF";
 
-     	ctx.textAlign = aligns[selectedAlign];
 
-    	var fontStr = "" + fontSize + fontPx + fonts[selectedFont];
-    	ctx.font= fontStr;
+        var fontStr = "" + fontSize + fontPx + fonts[selectedFont];
+    	ctx.font = fontStr;
+
+        ctx.textAlign = aligns[selectedAlign]
 
     	var x = alignX()[selectedAlign];
 
-
     	var lines = text.split("\n");
     	for(var i=0;i<lines.length; i++){
-			ctx.fillText(lines[i], x, 200 + fontSize*i);
+			ctx.fillText(lines[i], x, 400 + (fontSize+2)*i);
 		}
 
 		var dataURL = c.toDataURL();
-
       
         document.getElementById('canvasImg').src = dataURL;
 
