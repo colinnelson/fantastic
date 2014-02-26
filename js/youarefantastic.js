@@ -20,8 +20,9 @@ function fantastic() {
 
 	var WIDTH = 640;
 	var HEIGHT = 1136;
-	var text = "You are Fantastic.";
-	var fontSize = 28;
+    //var text = "Test Text.";
+    var text = "You are Fantastic.";
+	var fontSize = 32;
 	var fontPx = "px ";
 
 

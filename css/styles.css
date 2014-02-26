@@ -1,7 +1,14 @@
 * {
   -webkit-font-smoothing: antialiased;
 }
-
+#bodyWrap{
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  width: 640px;
+  margin-left:auto;
+  margin-right:auto; 
+}
 body, html {
   font-family: Courier, Helvetica, Arial, sans-serif;
   font-size: 20px;
@@ -12,7 +19,7 @@ body, html {
   width: 100%;
   height: 100%;
   color:#FFFFFF;
-  background-color: #000000;
+  background-color: #111111;
 }
 .font{
   display: none;
@@ -20,8 +27,10 @@ body, html {
 .label{
   float: left;
   display: block;
-  width:120px;
-  padding-left: 10px;
+  width:170px;
+  padding-right: 10px;
+  padding-top: 7px;
+  text-align: right;
 }
 .clearFloat{
   clear: both;
@@ -38,14 +47,14 @@ body, html {
   
 }
 #formSubmit{
-  background-color: #838383;
+  background-color: #FFFFFF;
   font-weight: bold;
-  font-size: 14px;
-  height: 26px;
-  width: 106px;
+  font-size: 24px;
+  height: 46px;
+  width: 256px;
   border-width: 0px;
   border-radius: 5px;
-  color: #ffffff;
+  color: #000000;
   cursor: pointer;
   margin-right: 5px;
 }
@@ -54,6 +63,8 @@ body, html {
     display:none;
 }
 textarea{
+  background-color: #838383;
+  color: white;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 36px;
 
