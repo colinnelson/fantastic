@@ -5,13 +5,15 @@
   position: relative;
   margin: 0 auto;
   display: block;
-  width: 640px;
-  margin-left:auto;
-  margin-right:auto; 
+  width: 100%;
+}
+h1{
+  text-align: center;
+  font-size: 16px;
 }
 body, html {
   font-family: Courier, Helvetica, Arial, sans-serif;
-  font-size: 20px;
+  font-size: 10px;
   margin: 0 auto;
   padding: 0;
   min-width: 100%;
@@ -21,15 +23,20 @@ body, html {
   color:#FFFFFF;
   background-color: #111111;
 }
+#canvasImg{
+  display: block;
+  margin: 0 auto;
+  position: relative;
+}
 .font{
   display: none;
 }
 .label{
   float: left;
   display: block;
-  width:170px;
-  padding-right: 10px;
-  padding-top: 7px;
+  width:85px;
+  padding-right: 5px;
+  margin-top: 6px;
   text-align: right;
 }
 .clearFloat{
@@ -40,6 +47,7 @@ body, html {
   display: block;
   width:100px;
   padding-right: 0px;
+  margin-top: 3px;
 }
 #formSubmitHolder{
 
@@ -49,9 +57,9 @@ body, html {
 #formSubmit{
   background-color: #FFFFFF;
   font-weight: bold;
-  font-size: 24px;
-  height: 46px;
-  width: 256px;
+  font-size: 12px;
+  height: 23px;
+  width: 128px;
   border-width: 0px;
   border-radius: 5px;
   color: #000000;
@@ -63,24 +71,28 @@ body, html {
     display:none;
 }
 textarea{
+  text-align: center;
+  border-color: #838383;
+  border-radius: 2px;
+  border:5px;
   background-color: #838383;
   color: white;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 36px;
-
-  width:515px;
-  height:200px;
+  font-size: 16px;
+  padding:5px;
+  width:250px;
+  height:100px;
 }
 textarea, select{
   font-family: Helvetica, Arial, sans-serif;
   resize: none;
 }
 select{
-  font-size: 20px;
+  font-size: 10px;
   color:white;
-  width:250px;
+  width:125px;
   border-radius: 0px;
-  padding: 5px 10px;
+  padding: 3px 5px;
   background-color: #838383;
 
   border:none;
@@ -88,14 +100,15 @@ select{
 
 }
 #formWrap{
-  width:640px;
-  top:320px;
+  display: none;
+  width:100%;
+  top:20%;
   position:absolute;
 }
 #formHolder{
-  border-radius: 10px;
-  padding: 10px;
-  width:520px;
+  border-radius: 5px;
+  padding: 5px 10px 10px 10px;
+  width:260px;
 
   margin-left:auto;
   margin-right:auto; 
@@ -103,7 +116,7 @@ select{
   background-color: rgb(60, 60, 60);
   position:relative;
   display: block;
-  margin-top:10px;
+  margin-top:5px;
   display: block;
   margin: 0 auto;
 

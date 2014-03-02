@@ -22,8 +22,12 @@ function fantastic() {
 	var HEIGHT = 1136;
     //var text = "Test Text.";
     var text = "You are Fantastic.";
-	var fontSize = 32;
+    //var text = window.innerWidth + " " ;
+	var fontSize = 20;
+    var startYPos = 500;
 	var fontPx = "px ";
+
+    var isRetina = window.devicePixelRatio > 1 ? 1 : 1;
 
 
 
@@ -39,12 +43,31 @@ function fantastic() {
     var inputVisible = false;
 
     _.init = function() {
+        WIDTH = window.screen.width;
+        HEIGHT = window.screen.height;
+
     	c = $("#canvas")[0];
+        /*
+        bw = $("#bodyWrap")[0];
+        var wpx = WIDTH + "px";
+        var hpx = HEIGHT + "px";
+
+        $(bw).css("width", wpx);
+        $(bw).css("height", hpx);
+        */
+        c.width = WIDTH;
+        c.height = HEIGHT;
+        
+        startYPos = HEIGHT/2;
+
         ta = $("#entry_text");
         img = $("#canvasImg");
         formWrap = $("#formWrap");
         ctx = c.getContext("2d");
-            ta.val(text);
+        ta.val(text);
+
+
+
 
     	ta.change(onTextEnter);
 
@@ -52,9 +75,10 @@ function fantastic() {
 
     	render();
 
-        img.click(imgClick);
-        showForm(false);
 
+        img.click(imgClick);
+
+        showForm(false);
 
     }
     var imgClick = function (){
@@ -156,7 +180,7 @@ function fantastic() {
 
     	var lines = text.split("\n");
     	for(var i=0;i<lines.length; i++){
-			ctx.fillText(lines[i], x, 400 + (fontSize+2)*i);
+			ctx.fillText(lines[i], x, startYPos + (fontSize+2)*i);
 		}
 
 		var dataURL = c.toDataURL();
