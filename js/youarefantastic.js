@@ -21,7 +21,7 @@ function fantastic() {
 	var WIDTH = 640;
 	var HEIGHT = 1136;
     //var text = "Test Text.";
-    var text = "You are Fantastic.";
+    var text = "You are Fantastic";
     //var text = window.innerWidth + " " ;
 	var fontSize = 20;
     var startYPos = 500;
@@ -67,6 +67,16 @@ function fantastic() {
         ta.val(text);
 
 
+       // img = $("#canvasImg");
+        //img.hammer('touchmove', ".", touchMove);
+        var hammertime = new Hammer(document, { drag_max_touches: 0 });
+        hammertime.on("touch drag", touchMove);
+        //hammertime.on("touch start", touchStart);
+        //document.ontouchmove = function(e){ 
+        //    e.preventDefault(); 
+        //}
+
+
 
 
     	ta.change(onTextEnter);
@@ -80,6 +90,18 @@ function fantastic() {
 
         showForm(false);
 
+    }
+    var touchStart = function (e){
+        e.preventDefault();
+        console.log(e);
+    }
+    var touchMove = function (e){
+        e.preventDefault();
+        var touches = e.gesture.touches;
+
+        for(var t = 0, len = touches.length; t < len; t++) {
+            console.log(touches.length + " " + touches[t].pageX + " " + touches[t].pageY);
+        }
     }
     var imgClick = function (){
         if(inputVisible = !inputVisible ){

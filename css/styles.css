@@ -22,6 +22,7 @@ body, html {
   height: 100%;
   color:#FFFFFF;
   background-color: #111111;
+  overflow: hidden;
 }
 #canvasImg{
   display: block;
@@ -64,6 +65,7 @@ body, html {
   border-radius: 5px;
   color: #000000;
   cursor: pointer;
+  margin-top: 5px;
   margin-right: 5px;
 }
 

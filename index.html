@@ -3,7 +3,7 @@
     <head>
 
 
-        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <title> You Are </title>
 
@@ -12,10 +12,20 @@
 
         <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+          ga('create', 'UA-48923422-2', 'colin.technology');
+          ga('send', 'pageview');
+
+        </script>
         <!-- JS -->
         <script src='js/jquery.min.js'></script>
-        <script src='js/jquery.hammer-full.min.js'></script>
+        <!--<script src='js/jquery.hammer-full.min.js'></script>-->
+        <script src='js/hammer.min.js'></script>
         <script src='js/youarefantastic.js'></script>
 
         <script src="http://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
@@ -32,9 +42,9 @@
             <div class="font" style="font-family:Dancing Script;">.</div>
             <div class="font" style="font-family: Questrial;">.</div>
         	<canvas id="canvas" width="640" height="1136" ></canvas>
-
-            <img id="canvasImg" alt="Right click to save me!" />
-
+            <div id="imageWrap">
+                <img id="canvasImg" alt="Right click to save me!" />
+            </div>
             <div id="formWrap">
                 <div id="formHolder">
                     <form id="inputForm">
