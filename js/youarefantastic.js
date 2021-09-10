@@ -2,7 +2,7 @@
  * youarefantastic
  *
  * MIT licensed
- * Copyright (C) 2014 Colin Nelson
+ * Copyright (C) 2021 Colin Nelson
  */
 
 /*********************************************
